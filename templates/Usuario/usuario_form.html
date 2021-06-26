@@ -1,6 +1,8 @@
 {% extends 'Usuario/base/base.html' %} 
 
 {% block content %}
+
+<a href="javascript: history.go(-1)">Volver </a>
     <h1>Agregar USUARIO</h1>
     
     <div class="content container">
@@ -9,5 +11,6 @@
         <button type="submit">GRABAR</button>
     </form>
     </div>
+    <a href="javascript:history.back()"><img src="images/descarga.png" height="33" width="100" alt="Botón"</a>
 
 {% endblock %}
