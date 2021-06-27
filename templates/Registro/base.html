@@ -12,8 +12,44 @@
     
 </head>
 
-<body>
+<body style="background-color: rgb(202, 202, 202);">
+    <nav id="navbar">
+        <div id="navbar-logo">
+            <img src="{% static 'images/img/LogoMasterBike.png' %}" alt="logo">
+        </div>
+        
+        <div id="nav">
+            <ul>            
+                <li class="nav-item"><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="nav-item"><a href="{% url 'list_carreras' %}">Ofertas</a></li>
+                <li class="nav-item"><a href="{% url 'registrar' %}">Arriendos</a></li>
+                <li class="nav-item"><a href="#">Solicitudes</a></li>
 
+                {% if not user.is_authenticated %}        
+                <li class="nav-item"><a href="{% url 'registrar' %}">Registrarse</a></li>
+                <li class="nav-item"><a href="{% url 'login' %}">iniciar sesión</a></li>
+                {% endif %}
+                
+                {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <li class="nav-item"><a style="color: red;" href="{% url 'list_user' %}">Listar usurios</a></li>
+                {% endif %}
+        
+                <li class="nav-item"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                <span class="ml-md-5" style="color: black;"><strong>Usuario: {{ user.get_username }}</strong></span>
+                {% endif %}
+                <div class="row">
+                    <form action="#">
+                        <input style="width: 11cm;" type="search"  required="required" placeholder="Escribe para buscar...">
+                        <button style="background-color: black;"><a href="javascript: history.go(-1)"><img style="height: 22px;" src="{% static 'images/img/search.png' %}" alt=""></a></button>
+                    </form>
+                        <button href="{% url 'logout' %}" style="margin-left: 0.3cm; width: 2.5cm ;height: 30px; ;display: flex;"><a>Carrito <img style="width: 20px; height: auto;" src="{% static 'images/img/Carrito.png' %}" alt=""></a></button>     
+                </div>
+            </ul>
+        </div>                                 
+    </nav>
+    <nav style="padding-top: 5PX;Background-color: black;"></nav>
+    <nav style="padding-top: 5PX;Background-color: black;"></nav>
     <div class="page-header">
         <h1> {% block titulo_principal %} home {% endblock %} </h1>
     </div>

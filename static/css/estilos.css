@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: orange;
+    background-color: rgb(218, 218, 218);
 }
 
 #navbar {
@@ -34,7 +34,7 @@ body {
 }
 
 #navbar li:hover {
-    background-color: #6BCCAA;
+    background-color: black;
     border-radius: 3px;
 }
 
@@ -46,3 +46,23 @@ body {
     color: white;
     font-weight: bold;
 }
+#slideshowWrapper {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  ul#slideshow {
+    list-style: none;
+    position: relative;
+    margin: auto;
+  }
+  
+  ul#slideshow li {
+    position: absolute;
+  }
+  
+  ul#slideshow li img {
+    border: 1px solid #ccc;
+    padding: 4px;
+    height: 450px;
+  }
